@@ -1,0 +1,74 @@
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    height: 80vh;
+    flex-direction: column;
+}
+
+#header {
+  color: white;
+}
+
+#header-text {
+  font-size: 500%;
+}
+
+#search-input {
+  height: 50px;
+  width: 70%;
+}
+
+.round-btn {
+  border: solid 2px white;
+  border-radius: 10px;
+  background: none;
+  color: white;
+  height: 50px;
+  outline: none;
+  width: 15%;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    height: 100%;
+
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#nav-brand {
+    font-size: 120%;
+}
+#code-area {
+    height: 85vh;
+    width: 100%;
+    resize: none;
+}
+
+#share-button{
+    border: solid 2px;
+}

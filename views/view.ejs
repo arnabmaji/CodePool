@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+    <%- include('links') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div id="nav-brand">CodePool</div>
+        <form class="form-inline my-2 my-lg-0">
+            <label for="">ID:&nbsp;</label>
+            <input class="form-control mr-sm-2" type="text" placeholder="Enter Id..." aria-label="Search" id="doc_id"
+                value=<%= document_id %> readonly>&nbsp;
+            <i class="fa fa-clipboard" style="font-size:30px;" onclick="copyToClipboard()"></i>&nbsp;
+        </form>
+    </nav>
+    <div class="shadow-textarea m-2">
+        <textarea class="form-control z-depth-1" rows="3" placeholder="Write something here..." id="code-area"
+            spellcheck="false" readonly><%= document %></textarea>
+    </div>
+
+    <script>
+        var documentBody = $("#code-area");
+        function copyToClipboard() {
+            documentBody.select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+
+</html>

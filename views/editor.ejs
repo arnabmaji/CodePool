@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+    <%- include('links') %>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div id="nav-brand">CodePool</div>
+        <div class="form-inline my-2 my-lg-0">
+            <i class="fa fa-check-circle text-success d-none" style="font-size:35px" id="success-icon"></i>
+            <i class="fa fa-warning text-danger d-none" style="font-size:30px" id="failed-icon"></i>
+            <div class="spinner-border text-warning d-none" id="loading-spinner"></div>&nbsp;
+            <input class="form-control mr-sm-2" id="documentId" type="text" placeholder="Enter Id..."
+                aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="share-button" onclick="sendData()"
+                type="button">Share</button>
+        </div>
+    </nav>
+    <div class="shadow-textarea m-2">
+        <textarea class="form-control z-depth-1" rows="3" placeholder="Write something here..." id="code-area"
+            spellcheck="false"></textarea>
+    </div>
+
+    <script>
+        function sendData(e) {
+            $(document).ready(function () {
+                var loadingSpinner = $("#loading-spinner");
+                var shareButton = $("#share-button");
+                var successIcon = $("#success-icon");
+                var failedIcon = $("#failed-icon");
+
+                successIcon.addClass("d-none");
+                failedIcon.addClass("d-none");
+
+                $.ajax({
+                    url: '/create',
+                    method: "POST",
+                    data: {
+                        documentId: $("#documentId").val(),
+                        document: $("#code-area").val()
+                    }, beforeSend: function () {
+                        shareButton.attr('disabled', 'disabled');
+                        loadingSpinner.removeClass("d-none");
+                    },
+                    success: function (response) {
+                        if (response.success === true) {
+                            successIcon.removeClass("d-none");
+                        } else {
+                            failedIcon.removeClass("d-none");
+                        }
+                        shareButton.removeAttr('disabled');
+                        loadingSpinner.addClass("d-none");
+                    }
+                });
+
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

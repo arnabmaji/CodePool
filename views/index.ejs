@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePool</title>
+    <%- include('links') %>
+    <link rel="stylesheet" href="http://localhost:5000/css/body.css">
+
+</head>
+
+<body>
+    <div class="container center-div">
+        <div id="header">
+            <div id="header-text">
+                CodePool
+            </div id="tag-line">
+            <h4 class="ml-2">
+                Share Code Snippets From Around the World
+            </h4>
+        </div>
+        <br>
+        <form action="/view" method="post">
+            <input class="form-control" name="documentId" type="text" placeholder="Enter Code Id..." aria-label="Search"
+                id="search-input" required>
+            <div class="mt-3">
+                <button class="round-btn" type="submit">Search</button>
+                <a href="/editor">
+                    <button class="round-btn ml-2" type="button">Create</button>
+                </a>
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>

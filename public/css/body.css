@@ -1,0 +1,15 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-user-select: none;
+    overflow: hidden;
+  }
+
+  body {
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(http://localhost:5000/assets/home-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Roboto Mono', monospace;
+  }
