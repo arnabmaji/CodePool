@@ -4,6 +4,7 @@ var router = express.Router()
 
 // Code for Testing Purposes
 var map = {};
+map["test"] = "This is a test document";
 
 router.get('/', (req, res) => {
     res.render('index');
@@ -15,6 +16,11 @@ router.get('/error', (req, res) => {
 
 router.post('/view', (req, res) => {
     var documentId = req.body.documentId;  // get doc id from body
+    res.redirect('view/' + documentId);  // redirect to requested page
+});
+
+router.get('/view/:id', (req, res) => {
+    var documentId = req.params.id;
     var doc = map[documentId];  // extract doc id from map
 
     if (doc) {  // if doc is available redirect to editor
@@ -26,6 +32,7 @@ router.post('/view', (req, res) => {
         res.redirect('/error');
     }
 });
+
 
 router.get('/editor', (req, res) => {
     res.render('editor');
@@ -47,5 +54,6 @@ router.post('/create', (req, res) => {
         });
     }
 });
+
 
 module.exports = router;
