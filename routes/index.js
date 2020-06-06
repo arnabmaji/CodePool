@@ -2,9 +2,7 @@ const express = require('express');
 
 var router = express.Router()
 
-// Code for Testing Purposes
 var map = {};
-map["test"] = "This is a test document";
 
 router.get('/', (req, res) => {
     res.render('index');
